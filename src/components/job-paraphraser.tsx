@@ -214,9 +214,9 @@ function OutputCard({ result, onCopy }: { result: ActionResult; onCopy: () => vo
                 <h3 className="text-lg font-semibold mb-2 font-headline">
                   Key Terms & Technologies
                 </h3>
-                {result.keyTerms && result.keyTerms.length > 0 ? (
+                {result.summary.keyTerms && result.summary.keyTerms.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
-                    {result.keyTerms.map((term, index) => (
+                    {result.summary.keyTerms.map((term, index) => (
                       <Badge key={index} variant="secondary" className="text-base px-3 py-1">
                         {term}
                       </Badge>

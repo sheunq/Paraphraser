@@ -5,7 +5,6 @@ import { summarizeJobDescription, type SummarizeJobDescriptionOutput } from '@/a
 
 export interface ActionResult {
   summary?: SummarizeJobDescriptionOutput;
-  keyTerms?: string[];
   error?: string;
 }
 
@@ -24,13 +23,12 @@ export async function processJobDescription(
   try {
     const result = await summarizeJobDescription({ jobDescription });
 
-    if (!result || !result.keyTerms) {
+    if (!result) {
       throw new Error('AI failed to generate a valid response.');
     }
 
     return {
-      summary: result,
-      keyTerms: result.keyTerms,
+      summary: result
     };
   } catch (e) {
     console.error(e);
